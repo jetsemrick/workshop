@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getSortedPostsData } from "@/lib/posts";
-import { ArrowRight, Github, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { formatDate } from "@/lib/utils";
@@ -35,6 +35,15 @@ export default function Home() {
           >
             <Twitter size={18} />
             <span>Twitter</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jetsemrick/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm font-medium text-foreground/60 transition-colors hover:text-foreground"
+          >
+            <Linkedin size={18} />
+            <span>LinkedIn</span>
           </a>
         </div>
       </section>
