@@ -12,9 +12,18 @@ export async function generateStaticParams() {
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
   const postData = await getPostData(params.slug);
+  const canonical = `/writing/${params.slug}`;
+  const title = `${postData.title} - Jet Semrick`;
   return {
-    title: `${postData.title} - Portfolio`,
+    title,
     description: postData.description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description: postData.description,
+    },
   };
 }
 

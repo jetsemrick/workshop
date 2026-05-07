@@ -1,8 +1,8 @@
 ---
-title: "Placeholder"
+title: "Hello, world"
 date: "2024-01-01"
-description: "Welcome to my new portfolio."
+description: "A short introduction."
 ---
 
-This is my first post.
+Welcome. This is the first entry — more soon on engineering, debate, and building Cursor.
 

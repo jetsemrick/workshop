@@ -21,6 +21,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadein {
+  animation: fadein 0.4s ease-in-out both;
+}
+
 /* Noise Overlay */
 .noise-overlay {
   position: fixed;

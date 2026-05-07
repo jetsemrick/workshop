@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getSortedPostsData } from "@/lib/posts";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { formatDate } from "@/lib/utils";
@@ -15,7 +15,7 @@ export default function Home() {
           Jet Semrick
         </h1>
         <p className="max-w-2xl text-lg text-foreground/60 leading-relaxed">
-          I'm a software engineer and debate teacher. Currently, I'm helping build Cursor. Previously, I co-founded Avallon (YCombinator X25) and coached policy debate at the Taipei American School. I studied computer science at the University of Kansas and Cornell Tech. Based in New York City.
+          I&apos;m a software engineer and debate teacher. Currently, I&apos;m helping build Cursor. Previously, I co-founded Avallon (YCombinator X25) and coached policy debate at the Taipei American School. I studied computer science at the University of Kansas and Cornell Tech. Based in New York City.
         </p>
         <div className="flex gap-4">
           <a

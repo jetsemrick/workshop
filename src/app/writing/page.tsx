@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Writing - Portfolio",
+  title: "Writing - Jet Semrick",
   description: "Essays and thoughts.",
 };
 

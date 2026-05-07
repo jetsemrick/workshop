@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -15,11 +14,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://jetsemrick.com";
+const siteName = "Jet Semrick";
+const siteDescription = "Personal website and portfolio";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Jet Semrick",
-  description: "Personal website and portfolio",
+  description: siteDescription,
   icons: {
     icon: "/icon.png",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Jet Semrick",
+    description: siteDescription,
+    url: siteUrl,
+    siteName,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jet Semrick",
+    description: siteDescription,
+    creator: "@jetsemrick",
   },
 };
 
@@ -29,18 +50,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        <Providers>
-          <div className="noise-overlay" />
-          <Header />
-          <main className="mx-auto min-h-screen max-w-3xl px-6 py-12 md:py-20">
-            {children}
-          </main>
-          <Footer />
-        </Providers>
+        <div className="noise-overlay" />
+        <Header />
+        <main className="mx-auto min-h-screen max-w-3xl px-6 py-12 md:py-20">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
