@@ -37,7 +37,7 @@ export default function Home() {
             <span>Twitter</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/jetsemrick/"
+            href="https://www.linkedin.com/in/jetsemrick"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm font-medium text-foreground/60 transition-colors hover:text-foreground"
