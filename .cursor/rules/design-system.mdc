@@ -10,10 +10,15 @@ globs: **/*.{html,css,js,ts,jsx,tsx,mdx,svelte,vue,astro}
 - **Modular**: Build small, reusable, and composable components.
 
 ## Color Palette
-- **Primary**: Black (`#000000` or extremely dark gray like `#111111`) and White (`#FFFFFF`).
-- **Secondary**: Range of neutral grays for borders, backgrounds, and secondary text.
-- **Accents**: Use layout, typography size, and whitespace for emphasis rather than color.
-- **Prohibited**: High-saturation colors, gradients (unless subtle texture), and "AI-generated" generic themes.
+
+Defined in `src/app/globals.css`:
+
+- **Background**: `#f7f7f4` (warm off-white)
+- **Foreground**: `#26251e` (dark brown-gray)
+- **Secondary text**: `text-foreground/60` or `/40` opacity variants
+- **Borders**: `border-neutral-200`, `border-neutral-100`
+- **Accents**: Use layout, typography size, and whitespace — not saturated color
+- **Prohibited**: High-saturation colors, gradients (except subtle noise overlay), generic SaaS aesthetics
 
 ## Typography
 - Use a clean, modern sans-serif font family (e.g., Inter, Geist, Helvetica Neue).
