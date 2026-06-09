@@ -34,7 +34,18 @@ export default async function Post(props: { params: Promise<{ slug: string }> })
   return (
     <article className="space-y-8">
       <header className="space-y-4">
-        <div className="text-sm text-foreground/40">{formatDate(postData.date)}</div>
+        <div className="space-y-1 text-sm text-foreground/40">
+          <div>Published {formatDate(postData.date)}</div>
+          {postData.revisions && postData.revisions.length > 1 && (
+            <div>
+              Edited{" "}
+              {postData.revisions
+                .slice(1)
+                .map((revision) => formatDate(revision))
+                .join(" · ")}
+            </div>
+          )}
+        </div>
         <h1 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
           {postData.title}
         </h1>

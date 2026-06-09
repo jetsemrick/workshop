@@ -1,0 +1,36 @@
+---
+description: Static export constraints for Next.js
+globs: next.config.ts,src/app/**/*
+alwaysApply: false
+---
+
+# Static Export Constraints
+
+This site uses `output: "export"` in `next.config.ts`. All features must be compatible with static generation.
+
+## Allowed
+
+- Server Components that read filesystem at build time (`src/lib/posts.ts`)
+- `generateStaticParams()` for dynamic routes
+- `export const dynamic = 'force-static'`
+- `generateMetadata()` for SEO
+
+## Not Allowed
+
+- API routes (`src/app/api/`)
+- Server Actions
+- Dynamic server rendering or ISR revalidation
+- `next/image` optimization (use `images.unoptimized: true`)
+- Middleware that requires a server
+
+## New Routes
+
+1. Add page under `src/app/`
+2. For dynamic segments, implement `generateStaticParams()`
+3. Add URL to `src/app/sitemap.ts` if not auto-discovered
+4. Verify with `bun run build`
+
+## Hosting
+
+- Deployed on Vercel with custom domain `jetsemrick.com`
+- `basePath` is `""` (empty) for root-domain hosting

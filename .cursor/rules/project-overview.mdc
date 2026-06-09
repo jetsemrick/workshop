@@ -1,0 +1,47 @@
+---
+description: Core project context for the Jet Semrick portfolio site
+alwaysApply: true
+---
+
+# Project Overview
+
+Personal portfolio and writing site at **jetsemrick.com**, statically exported to GitHub Pages.
+
+## Stack
+
+- Next.js 16 App Router, React 19, TypeScript
+- Tailwind CSS v4 with `@tailwindcss/typography`
+- Bun for package management and scripts
+- Markdown posts in `content/posts/` (gray-matter + remark)
+
+## Layout
+
+| Path | Purpose |
+|------|---------|
+| `src/app/` | Pages and routes |
+| `src/components/` | Shared UI components |
+| `src/lib/posts.ts` | Post loading and parsing |
+| `src/lib/utils.ts` | `cn()`, `formatDate()` |
+| `content/posts/` | Markdown blog posts |
+| `public/` | Static assets, `CNAME` |
+
+## Commands
+
+```bash
+bun install
+bun run dev      # local dev
+bun run lint     # eslint
+bunx tsc --noEmit
+bun run build    # static export to ./out
+```
+
+## Deployment
+
+Push to `main` triggers `.github/workflows/deploy.yml`: lint → typecheck → build → GitHub Pages.
+
+## Conventions
+
+- Path alias: `@/` → `src/`
+- Icons: Lucide React only
+- `"use client"` only when hooks or browser APIs are required
+- External links: `target="_blank"` + `rel="noopener noreferrer"`

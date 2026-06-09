@@ -11,7 +11,28 @@ export interface PostData {
   date: string;
   title: string;
   description?: string;
+  updated?: string;
+  revisions?: string[];
   contentHtml?: string;
+}
+
+interface PostFrontmatter {
+  date: string;
+  title: string;
+  description?: string;
+  updated?: string;
+  revisions?: string[];
+}
+
+function parsePostFrontmatter(data: PostFrontmatter): Omit<PostData, "id" | "contentHtml"> {
+  const { date, title, description, updated, revisions } = data;
+  return {
+    date,
+    title,
+    description,
+    updated,
+    revisions,
+  };
 }
 
 export function getSortedPostsData(): PostData[] {
@@ -35,7 +56,7 @@ export function getSortedPostsData(): PostData[] {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as { date: string; title: string; description?: string }),
+      ...parsePostFrontmatter(matterResult.data as PostFrontmatter),
     };
   });
   // Sort posts by date
@@ -79,7 +100,7 @@ export async function getPostData(id: string): Promise<PostData> {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string; description?: string }),
+    ...parsePostFrontmatter(matterResult.data as PostFrontmatter),
   };
 }
 

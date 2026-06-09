@@ -1,0 +1,52 @@
+---
+description: File-based CMS schema and conventions for blog posts
+globs: content/posts/**,src/lib/posts.ts,src/app/writing/**/*
+alwaysApply: false
+---
+
+# Content CMS
+
+Blog content lives in `content/posts/` as Markdown files. No database or admin UI — agents and editors work directly with files.
+
+## Post Schema
+
+Each file: `content/posts/{slug}.md`
+
+```yaml
+---
+title: "Post Title"
+date: "2026-01-15"
+description: "Optional summary for listings and SEO."
+---
+```
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `title` | yes | Display heading |
+| `date` | yes | ISO date string (`YYYY-MM-DD`), sorted newest first |
+| `description` | no | Shown on `/writing` index and in metadata |
+
+**Slug** = filename without `.md`. URL: `/writing/{slug}`.
+
+## Pipeline
+
+1. `gray-matter` parses frontmatter
+2. `remark` + `remark-html` converts body to HTML
+3. Rendered via `dangerouslySetInnerHTML` with `prose prose-neutral` classes
+
+## Auto-Discovery
+
+New posts appear automatically on:
+
+- Home page (latest 3)
+- `/writing` index
+- `/writing/[slug]` (via `generateStaticParams`)
+- `sitemap.xml`
+
+No registry file to update.
+
+## Writing Style
+
+- Plain Markdown in the body
+- No emojis in titles or body text
+- Keep frontmatter values in double quotes
