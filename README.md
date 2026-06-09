@@ -1,6 +1,6 @@
 # Jet Semrick — Portfolio
 
-Personal site and writing, built with Next.js and Tailwind, statically exported to GitHub Pages.
+Personal site and writing, built with Next.js and Tailwind, statically exported and deployed on Vercel.
 
 ## Development
 
@@ -12,4 +12,4 @@ bun run build
 
 ## Deployment
 
-Pushes to `main` deploy via the GitHub Pages workflow at `.github/workflows/deploy.yml`.
+Pushes to `main` deploy automatically via the Vercel GitHub integration.
